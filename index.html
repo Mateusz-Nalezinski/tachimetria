@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8"/>
+  <title>GeoWeb – PUWG2000 (Y X Z) | Tachimetria (modular)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+  <div id="left">
+    <h2>GeoWeb – PUWG2000 (Y/X/Z) + Ortofoto + Stanowiska</h2>
+
+    <div class="row">
+      <label>Plik OSNOWA (format: <code>ID  Y  X  Z</code>)</label>
+      <input id="fileOsnowa" type="file" accept=".csv,.txt"/>
+      <div class="small">np. <code class="mono">1748\t5951777.74\t6507496.84\t124.70</code></div>
+    </div>
+
+    <div class="row">
+      <label>Plik PIKIETY (format: <code>ID  Y  X  Z</code>)</label>
+      <input id="filePikiety" type="file" accept=".csv,.txt"/>
+    </div>
+
+    <div class="row">
+      <label>Strefa PUWG 2000</label>
+      <select id="epsgSelect">
+        <option value="AUTO" selected>Auto (na podstawie X)</option>
+        <option value="EPSG:2176">PUWG2000 strefa 5 (EPSG:2176)</option>
+        <option value="EPSG:2177">PUWG2000 strefa 6 (EPSG:2177)</option>
+        <option value="EPSG:2178">PUWG2000 strefa 7 (EPSG:2178)</option>
+        <option value="EPSG:2179">PUWG2000 strefa 8 (EPSG:2179)</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <button id="btnParse">Wczytaj i narysuj</button>
+      <button id="btnDemo">Dane demo</button>
+      <button id="btnClear">Wyczyść</button>
+    </div>
+
+    <div class="row block">
+      <div class="row-flex" style="align-items:center;">
+        <div>
+          <strong>Dodawanie punktów</strong>
+          <div class="small">Kliknij tryb, a potem wskaż punkt na mapie.</div>
+        </div>
+        <div style="flex:0 0 auto">
+          <button id="btnAddPk">+ Pikieta</button>
+          <button id="btnAddOs">+ Osnowa</button>
+          <span id="addModeInfo" class="small" style="margin-left:6px;">Tryb dodawania: OFF</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row block">
+      <div class="row-flex">
+        <div>
+          <strong>Stanowiska (lista)</strong>
+          <div class="small">Wybierz STAN, dodaj <b>nawiązania (wiele)</b>, ustaw promień, pobierz pikiety i zatwierdź. Możesz też <b>dodawać pikiety klikając na mapie</b> dla aktywnego stanowiska.</div>
+        </div>
+        <div style="flex:0 0 auto"><button id="btnAddStan">+ Dodaj stanowisko</button></div>
+      </div>
+      <div id="stanList"></div>
+    </div>
+
+    <div class="row block">
+      <div><strong>Ręczne rysowanie linii pomiarowej</strong></div>
+      <button id="btnDraw" title="Kliknij A, potem B (marker lub mapa)">Tryb rysowania: OFF</button>
+      <button id="btnClearMeas">Wyczyść linie</button>
+      <div id="measInfo" class="small" style="margin-top:6px;"></div>
+    </div>
+
+    <div class="row block">
+      <div><strong>Raporty</strong></div>
+      <div class="small">Przyciski przygotowane do generowania raportów PDF/HTML.</div>
+      <button id="btnReportHtml">Podgląd raportu (HTML)</button>
+      <button id="btnReportPdf">Generuj PDF</button>
+    </div>
+  </div>
+
+  <div id="map"></div>
+
+  <!-- vendor libs -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.8.1/proj4.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+  <!-- app -->
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>

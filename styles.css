@@ -1,0 +1,24 @@
+
+body { margin:0; padding:0; height:100vh; display:flex; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+#left { width:560px; min-width:380px; max-width:880px; border-right:1px solid #ddd; padding:12px; box-sizing:border-box; overflow:auto; }
+#map { flex:1; height:100vh; }
+.row{ margin:10px 0; }
+label{ display:block; font-weight:600; margin-bottom:4px; }
+input[type="file"], select, input[type="number"], input[type="text"]{ width:100%; padding:6px; box-sizing:border-box; }
+button{ padding:8px 12px; margin-right:6px; margin-top:6px; cursor:pointer; }
+.small{ font-size:12px; color:#555; }
+.block{ border:1px solid #e6e6e6; background:#fafafa; padding:8px; border-radius:8px; margin-top:8px; }
+.badge{ display:inline-block; padding:2px 6px; border-radius:6px; background:#eef; margin-right:6px; }
+.btn-on{ background:#1e90ff; color:#fff; }
+.btn-add-on{ background:#0aa36f; color:#fff; }
+.card{ border:1px solid #ddd; border-radius:8px; padding:8px; margin-top:8px; background:#fff; }
+.card h4{ margin:0 0 6px 0; font-size:14px; }
+.row-flex{ display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
+.row-flex > * { flex: 1 1 auto; }
+.mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+.chips{ display:flex; flex-wrap:wrap; gap:4px; margin-top:6px; }
+.chip{ background:#f0f7ff; border:1px solid #cfe3ff; border-radius:999px; padding:2px 8px; font-size:12px; }
+.chip .x{ margin-left:6px; cursor:pointer; opacity:0.6; }
+.pklist{ max-height:200px; overflow:auto; border:1px dashed #ddd; padding:6px; border-radius:6px; background:#fafafa; }
+.form-inline{ display:flex; gap:6px; align-items:center; }
+.form-inline input{ width:auto; }
