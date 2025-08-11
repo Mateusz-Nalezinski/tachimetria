@@ -67,7 +67,7 @@ export function renderStanList(){
           const distTxt  = (typeof pk._dist==='number') ? ` <span style="opacity:.6">(${pk._dist.toFixed(2)} m)</span>` : '';
           const seqTxt   = st.clickSeq.has(pk.id) ? ` <span style="opacity:.6">[#${st.clickSeq.get(pk.id)}]</span>` : '';
           return `<label class="small"><input type="checkbox" data-act="pk-tgl" data-stanid="${st.id}" data-pkid="${pk.id}" ${checked} ${disabled}/> ${pk.id}${seqTxt}${note}${distTxt} <span style="opacity:.6">Y:${pk.y.toFixed(2)} X:${pk.x.toFixed(2)}</span></label>`;
-        }).join('<br/>)'}
+        }).join('<br/>')}
       </div>` : '<div class="small" style="opacity:.7">Brak pikiet — kliknij „Pobierz pikiety”.</div>';
 
     const isAddPkActive = state.selection.active && state.selection.mode==='ADD_PK' && state.selection.stanObj && state.selection.stanObj.id===st.id;
