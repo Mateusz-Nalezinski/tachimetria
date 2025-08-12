@@ -6,6 +6,7 @@ import { parseTextAsYXZ } from './data.js';
 import { addStanowiskoCard, drawAll, renderStanList, refreshPikietyStyles, sortPikietyForStan } from './stanowiska.js';
 import { bindOsnowaEditorOrSelector, bindPikietaEditorOrPicker, installMapClickHandlers } from './interactions.js';
 import { previewHtml, generatePdf } from './report.js';
+import { APP_VERSION, APP_CHANGELOG } from './version.js'; // <--- dodane
 
 definePUWG();
 initMap();
@@ -96,3 +97,7 @@ document.getElementById('btnReportHtml').addEventListener('click', ()=> previewH
 document.getElementById('btnReportPdf').addEventListener('click', ()=> generatePdf());
 
 console.log('[Tachimetria] Modular app loaded.');
+
+// ---- Wersja i opis zmian ----
+console.log(`%c[Tachimetria] Wersja ${APP_VERSION}`, "color: green; font-weight: bold;");
+console.log(`%cZmiany:${APP_CHANGELOG}`, "color: gray;");
